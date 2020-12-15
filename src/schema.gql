@@ -1,0 +1,26 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type CommonOutput {
+  data: ErrorData
+  ok: Boolean!
+}
+
+type ErrorData {
+  message: String!
+  stack: String
+  statusCode: Int!
+}
+
+type Query {
+  errorBelow500: CommonOutput!
+  errorUp500: String!
+  test: TestOutput!
+  usePipe(data: Float!): TestOutput!
+}
+
+type TestOutput {
+  id: Int!
+  message: String!
+}
