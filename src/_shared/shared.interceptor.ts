@@ -1,6 +1,6 @@
 import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from '@nestjs/common';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable()
 export class SharedInterceptor implements NestInterceptor {
@@ -8,8 +8,8 @@ export class SharedInterceptor implements NestInterceptor {
     console.log('before interceptor');
 
     return next.handle().pipe(
-      catchError(err => {
-        return throwError('interceptor');
+      tap(() => {
+        console.log('after interceptor');
       }),
     );
   }

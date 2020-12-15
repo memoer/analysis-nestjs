@@ -14,10 +14,9 @@ type ErrorData {
 }
 
 type Query {
-  errorBelow500: CommonOutput!
-  errorUp500: String!
-  test: TestOutput!
-  usePipe(data: Float!): TestOutput!
+  errorBelow500(data: Float!): CommonOutput!
+  errorUp500(data: Float!): String!
+  succss(data: Float!): TestOutput!
 }
 
 type TestOutput {

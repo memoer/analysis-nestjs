@@ -11,7 +11,10 @@ export default (appOptions: ConfigType<typeof appConfig>): GqlModuleOptions => {
     sortSchema: true,
     playground: !isProd,
     debug: !isProd,
-    context: ({ req }) => req,
+    context: ({ req }) => {
+      console.log('context');
+      return req;
+    },
     // 단순히 error에 대한 formatting 만 해주는 것이라서 response에서 "errors" 쪽에만 접근이 가능하다.
     // "data" 쪽에는 접근이 불가
     formatError: error => {
